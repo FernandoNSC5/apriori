@@ -1,13 +1,19 @@
-import connect as conn
+import connectPg as db
 
 class Main():
 
 	def __init__(self):
-		print("[SYSTEM] Initializing")
-		self._allData = conn.loadAllData()
+		print("[SYSTEM] Initializing agent software")
+		self.database = db.Connect()
 
-	def getAllData():
-		return self._allData
 
-_m = Main()
-print(_m.getAllData())
+	###################################################
+	##
+	##	Core Methods
+	##
+	###################################################
+	def printAllInfo(self):
+		print(self.database.selectAllWithoutPk())
+
+m = Main()
+m.printAllInfo()

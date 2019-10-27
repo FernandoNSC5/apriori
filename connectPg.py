@@ -5,6 +5,7 @@ class Connect():
 	def __init__(self):
 		print("[SYSTEM] Initializing database connection")
 		self.initAllQuerrys()
+		print("[SQL] Initialization complete")
 
 
 	######################################################
