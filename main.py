@@ -1,4 +1,5 @@
 import connectPg as db
+from apyori import apriori as ap
 
 class Main():
 
@@ -20,7 +21,9 @@ class Main():
 	def printAllInfo(self):
 		print(self.database.selectAllWithoutPk())
 
+	# Creating Apriori transaction array
 	def aprioriTransactionMount(self):
+		print("[APRIORI] Creating transaction array...")
 		# Gets data from database 
 		dataInfo = self.database.selectAllWithoutPk()
 		
@@ -44,8 +47,13 @@ class Main():
 			#As python appends a memory address, this for creates new elements
 			for item in _toInput:
 				self.aprioriTransaction[aprioriTam-1].append(item)
+		print("[APRIORI] Array creation OK")
 
-		print(self.aprioriTransaction)
+	#Processing apriori
+	def aprioriProcess(self):
+		return list(ap(self.aprioriTransaction))
+
 
 m = Main()
 m.aprioriTransactionMount()
+print(m.aprioriProcess()[5])
