@@ -53,7 +53,10 @@ class Main():
 	def aprioriProcess(self):
 		return list(ap(self.aprioriTransaction))
 
+	def insertIntoTable(self, bread, coffee, milk, beer):
+		return self.database.insertIntoTable(bread, coffee, milk, beer)
+
 
 m = Main()
 m.aprioriTransactionMount()
-print(m.aprioriProcess()[5])
+m.insertIntoTable(1, 0, 1, 0)
